@@ -73,9 +73,9 @@ sudo -u postgres psql
 CREATE DATABASE tasks_db;
 CREATE USER youruser WITH PASSWORD 'yourpassword';
 GRANT ALL PRIVILEGES ON DATABASE tasks_db TO youruser;
-GRANT ALL ON SCHEMA public TO myuser;
+GRANT ALL ON SCHEMA public TO youruser;
 ALTER ROLE youruser SET search_path TO public;
-ALTER SCHEMA public OWNER TO myuser;
+ALTER SCHEMA public OWNER TO youruser;
 \q
 ```
 create .env
