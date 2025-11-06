@@ -4,7 +4,7 @@ from typing import Optional
 class TaskBase(BaseModel):
     title: str
     description: Optional[str] = None
-    is_completed: bool
+    is_completed: Optional[bool] = False
 
 class TaskCreate(TaskBase):
     pass
@@ -12,7 +12,7 @@ class TaskCreate(TaskBase):
 class TaskUpdate(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
-    is_completed: bool
+    is_completed: Optional[bool]
 
 class TaskResponse(TaskBase):
     id: int
