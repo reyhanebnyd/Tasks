@@ -12,11 +12,12 @@ class TaskCreate(TaskBase):
 class TaskUpdate(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
-    is_completed: Optional[bool]
+    is_completed: Optional[bool] = None
 
 class TaskResponse(TaskBase):
     id: int
     created_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = {
+        "from_attributes": True  
+    }
