@@ -51,9 +51,40 @@ uvicorn app.main:app --reload
 ```
 ### Deployment on VPS (Ubuntu)
 
-## SSH into VPS
+SSH into VPS
 ```bash
 ssh ubuntu@188.121.121.107
+```
+update and upgrade
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+install postgresql and python
+```bash
+sudo apt install postgresql postgresql-contrib -y
+sudo apt install python3-pip python3-venv -y
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+```
+set up username and password
+```bash
+sudo -u postgres psql
+CREATE DATABASE tasks_db;
+CREATE USER youruser WITH PASSWORD 'yourpassword';
+GRANT ALL PRIVILEGES ON DATABASE tasks_db TO youruser;
+GRANT ALL ON SCHEMA public TO myuser;
+ALTER ROLE youruser SET search_path TO public;
+ALTER SCHEMA public OWNER TO myuser;
+\q
+```
+create .env
+```bash
+nano .env
+```
+then add this:
+```bash
+DATABASE_URL=postgresql://youruser:yourpassword@localhost/tasks_db
 ```
 ## clone the repo and steup venv
 ```bash
