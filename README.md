@@ -28,9 +28,9 @@ uvicorn app.main:app --reload
 | ------ | ------------- | ------------------- |
 | POST   | /tasks/     | Create a new task   |
 | GET    | /tasks/     | List all tasks      |
-| GET    | /tasks/{id} | Get a task by ID    |
-| PUT    | /tasks/{id} | Update a task by ID |
-| DELETE | /tasks/{id} | Delete a task by ID |
+| GET    | /tasks/{task_id} | Get a task by ID    |
+| PUT    | /tasks/{task_id} | Update a task by ID |
+| DELETE | /tasks/{task_id} | Delete a task by ID |
 
 ## request example (create task)
 ```bash
